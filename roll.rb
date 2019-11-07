@@ -22,10 +22,12 @@ loop do
   next if !request_line || request_line =~ /favicon/
   puts request_line
 
+  next unless request_line
+
   http_method, path, params = parse_request(request_line)
 
-  client.puts "HTTP/1.1 200 OK\r\n\r\n"
-  client.puts "ContentType: text/html"
+  client.puts "HTTP/1.1 200 OK"
+  client.puts "Content-Type: text/html"
   client.puts
   client.puts "<html>"
   client.puts "<body>"
@@ -35,12 +37,14 @@ loop do
   client.puts params
   client.puts "</pre>"
 
+  client.puts "<h1>Rolls!</h1>"
+
   rolls = params["rolls"].to_i
   sides = params["sides"].to_i
 
   rolls.times do
     roll = rand(sides) + 1
-    client.puts roll
+    client.puts "<p>", roll, "</p>"
   end
 
   client.puts "</body>"
