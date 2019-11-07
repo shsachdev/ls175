@@ -10,6 +10,7 @@ loop do
   puts request_line
   client.puts "HTTP/1.1 200 OK\r\n\r\n"
   client.puts request_line
+  client.puts rand(6) + 1
 
   client.close
 end
