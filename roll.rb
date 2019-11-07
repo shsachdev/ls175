@@ -25,10 +25,15 @@ loop do
   http_method, path, params = parse_request(request_line)
 
   client.puts "HTTP/1.1 200 OK\r\n\r\n"
-  client.puts request_line
+  client.puts "ContentType: text/html"
+  client.puts
+  client.puts "<html>"
+  client.puts "<body>"
+  client.puts "<pre>"
   client.puts http_method
   client.puts path
   client.puts params
+  client.puts "</pre>"
 
   rolls = params["rolls"].to_i
   sides = params["sides"].to_i
@@ -38,5 +43,7 @@ loop do
     client.puts roll
   end
 
+  client.puts "</body>"
+  client.puts "</html>"
   client.close
 end
