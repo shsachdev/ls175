@@ -8,3 +8,7 @@ get "/" do
 
   erb :home
 end
+
+get "/chapters/1" do
+  @title = 
+end
