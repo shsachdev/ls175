@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+
+<h1>The Adventures of Shikky</h1>
+
+<div id="main">
+
+  <div class="content">
+    <h2 class="content-subhead">Files</h2>
+
+    <div class="pure-menu">
+      <ul class="pure-menu-list">
+        <% @list_of_files.each do |file| %>
+          <li class="pure-menu-item">
+            <a href="#" class="pure-menu-link"><%= file %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</html>
