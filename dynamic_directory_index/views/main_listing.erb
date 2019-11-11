@@ -20,8 +20,12 @@
   </div>
 </div>
 
-<a href="<%="http://localhost:4567/?sort=ascending"%>"> Sort Ascending </a>
-
-<a href="<%="http://localhost:4567/?sort=descending"%>"> Sort Descending </a>
+<p>
+  <% if params[:sort] == "desc" %>
+    <a href="/">Sort ascending</a>
+  <% else %>
+    <a href="/?sort=desc">Sort descending</a>
+  <% end %>
+</p>
 
 </html>

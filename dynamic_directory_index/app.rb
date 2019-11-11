@@ -3,17 +3,8 @@ require "sinatra/reloader"
 require "tilt/erubis"
 
 get "/" do
-  @list_of_files = Dir.glob("public/*")
-  erb :main_listing
-end
-
-get "/?sort=ascending" do
   @list_of_files = Dir.glob("public/*").sort
-  erb :main_listing
-end
-
-get "/?sort=descending" do
-  @list_of_files = Dir.glob("public/*").sort {|a,b| b <=> a}
+  @list_of_files.reverse! if params[:sort] == "desc"
   erb :main_listing
 end
 
