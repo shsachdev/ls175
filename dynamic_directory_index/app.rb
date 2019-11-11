@@ -8,7 +8,7 @@ get "/" do
 end
 
 get "/sort/ascending" do
-  @list_of_files = Dir.glob("public/*")
+  @list_of_files = Dir.glob("public/*").sort
   erb :main_listing
 end
 
