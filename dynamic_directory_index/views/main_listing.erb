@@ -12,7 +12,7 @@
       <ul class="pure-menu-list">
         <% @list_of_files.each do |file| %>
           <li class="pure-menu-item">
-            <a href="<%="file"%>" class="pure-menu-link"><%= file_cleaner(file) %></a>
+            <a href="<%=file_cleaner(file)%>" class="pure-menu-link"><%= file_cleaner(file) %></a>
           </li>
         <% end %>
       </ul>
