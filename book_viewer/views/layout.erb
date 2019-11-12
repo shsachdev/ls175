@@ -22,7 +22,7 @@
           <ul class="pure-menu-list">
             <% @contents.each do |chapter| %>
               <li class="pure-menu-item">
-                <a href="#" class="pure-menu-link"><%= chapter %></a>
+                <a href="<%="chapters/#{params[:number]}"%>" class="pure-menu-link"><%= chapter %></a>
               </li>
             <% end %>
           </ul>
