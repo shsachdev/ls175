@@ -15,9 +15,9 @@ end
 
 get "/chapters/:number" do
   @num = params[:number]
-  @title = "Chapter #{params[:number]}"
+  @title = "Chapter #{@num}"
   @contents = File.readlines("data/toc.txt")
-  @chapter = File.read("data/chp#{params[:number]}.txt")
+  @chapter = File.read("data/chp#{@num}.txt")
 
   erb :chapter
 end
