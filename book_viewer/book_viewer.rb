@@ -8,16 +8,9 @@ end
 
 helpers do
   def in_paragraphs(text)
-    result = text.lines.map do |line|
-      if line == "\n"
-        "\n"
-      else
-        new_line = line.split.push("<p>")
-        new_line.unshift("<p>")
-        new_line.join(" ")
-      end
-    end
-    result.join
+    text.split("\n\n").map do |paragraph|
+      "<p>#{paragraph}</p>"
+    end.join
   end
 end
 
