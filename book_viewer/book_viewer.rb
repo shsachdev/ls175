@@ -33,7 +33,8 @@ get "/chapters/:number" do
   erb :chapter
 end
 
-# in_paragraphs method
+get "/search" do
+  search_term = params[:query]
 
-# method takes a string that is the chapter content and return the same string
-# with paragraph tags wrapped around each non-empty line.
+  erb :search
+end
