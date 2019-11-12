@@ -14,6 +14,7 @@ get "/show/:name" do
 end
 
 get "/chapters/:number" do
+  @num = params[:number]
   @title = "Chapter #{params[:number]}"
   @contents = File.readlines("data/toc.txt")
   @chapter = File.read("data/chp#{params[:number]}.txt")
