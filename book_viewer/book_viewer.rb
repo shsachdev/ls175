@@ -6,6 +6,10 @@ before do
   @contents = File.readlines("data/toc.txt")
 end
 
+not_found do
+  redirect "/"
+end
+
 helpers do
   def in_paragraphs(text)
     text.split("\n\n").map do |paragraph|
