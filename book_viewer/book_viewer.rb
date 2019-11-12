@@ -16,3 +16,5 @@ get "/chapters/1" do
 
   erb :chapter
 end
+
+get "/chapters"
