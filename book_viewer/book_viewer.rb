@@ -34,7 +34,6 @@ get "/chapters/:number" do
 end
 
 get "/search" do
-  search_term = params[:query]
-
+  @search_term = params[:query]
   erb :search
 end
