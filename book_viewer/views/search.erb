@@ -7,16 +7,17 @@
 
 
 <p>
-  <% @contents.each_with_index do |chap_name, index| %>
-    <% array = [] %>
-    <% if File.read("data/chp#{@index + 1}.txt").split).include?(@search_term) %>
-      <% array << chap_name %>
-    <% end %>
+  <% array = @contents.select.with_index do |chap_name, index| %>
+    <% File.read("data/chp#{index + 1}.txt").split.include?(@search_term) %>
   <% end %>
 
   <% if array.empty? %>
     <h2 class="content-subhead">Sorry, no matches were found.</h2>
   <% else %>
-    <h2 class="content-subhead">There is something here. Please proceed to code lol.</h2
+    <% array.each_with_index do |chapter, index| %>
+      <li class="pure-menu-item">
+        <a href="<%="chapters/#{index + 1}"%>" class="pure-menu-link"><%= chapter %></a>
+      </li>
+    <% end %>
   <% end %>
 </p>
