@@ -16,6 +16,12 @@ helpers do
       "<p>#{paragraph}</p>"
     end.join
   end
+
+  # def word_cleaner(arr_of_words) # strips each word off bullshit characters
+  #   arr_of_words.map do |word|
+  #     word.chars
+  #   end
+  # end
 end
 
 get "/" do

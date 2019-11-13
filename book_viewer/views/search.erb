@@ -9,5 +9,14 @@
 <p>
   <% @contents.each_with_index do |chap_name, index| %>
     <% array = [] %>
-    <% if File.read("data/chp#{@index - 1}.txt")
+    <% if word_cleaner(File.read("data/chp#{@index - 1}.txt").split).include?(@search_term) %>
+      <% array << chap_name %>
+    <% end %>
+  <% end %>
+
+  <% if array.empty? %>
+    <h2 class="content-subhead">Sorry, no matches were found.</h2>
+  <% else %>
+    <h2 class="content-subhead">There is something here. Please proceed to code lol.</h2
+  <% end %>
 </p>
