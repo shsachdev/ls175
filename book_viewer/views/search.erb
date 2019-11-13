@@ -9,7 +9,7 @@
 <p>
   <% @contents.each_with_index do |chap_name, index| %>
     <% array = [] %>
-    <% if word_cleaner(File.read("data/chp#{@index - 1}.txt").split).include?(@search_term) %>
+    <% if File.read("data/chp#{@index + 1}.txt").split).include?(@search_term) %>
       <% array << chap_name %>
     <% end %>
   <% end %>
