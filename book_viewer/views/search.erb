@@ -4,3 +4,10 @@
   <input name="query" value="<%= params[:query] %>">
   <button type="submit">Search</button>
 </form>
+
+
+<p>
+  <% @contents.each_with_index do |chap_name, index| %>
+    <% array = [] %>
+    <% if File.read("data/chp#{@index - 1}.txt")
+</p>
