@@ -9,7 +9,7 @@
 <p>
   <% hash = {} %>
   <% @contents.select.with_index do |chap_name, index| %>
-    <% if File.read("data/chp#{index + 1}.txt").split.include?(@search_term) %>
+    <% if File.read("data/chp#{index + 1}.txt").include?(@search_term) %>
       <% hash[index + 1] = chap_name%>
     <% end %>
   <% end %>
