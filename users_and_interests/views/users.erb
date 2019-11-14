@@ -2,6 +2,6 @@
 
 <% @content.each do |key, value| %>
   <li>
-    <%= key %>
+    <a href="<%="users/#{key}"%>" ><%= key %></a>
   </li>
 <% end %>
