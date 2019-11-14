@@ -19,7 +19,7 @@
   <% else %>
     <% hash.each do |key, value| %>
       <li class="pure-menu-item">
-        <a href="<%="chapters/#{index + 1}"%>" class="pure-menu-link"><%= chap %></a>
+        <a href="<%="chapters/#{key}"%>" class="pure-menu-link"><%= value %></a>
       </li>
     <% end %>
   <% end %>
