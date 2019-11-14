@@ -12,16 +12,18 @@ end
 
 helpers do
   def in_paragraphs(text)
-    text.split("\n\n").map do |paragraph|
-      "<p>#{paragraph}</p>"
+    text.split("\n\n").each_with_index.map do |line, index|
+      "<p id=paragraph#{index}>#{line}</p>"
     end.join
   end
 
-  # def word_cleaner(arr_of_words) # strips each word off bullshit characters
-  #   arr_of_words.map do |word|
-  #     word.chars
-  #   end
-  # end
+  def chapters_matching(query)
+    results = []
+
+    return results unless query
+
+    each
+  end
 end
 
 get "/" do
