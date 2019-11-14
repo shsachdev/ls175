@@ -1,32 +1,20 @@
 <h2 class="content-subhead">Search</h2>
 
 <form action="/search" method="get">
-  <input name="query" value="<%= params[:query] %>">
+  <input name="query" value="<%= params[:query] %>"/>
   <button type="submit">Search</button>
 </form>
 
-
-<p>
-  <% hash = {} %>
-  <% @contents.select.with_index do |chap_name, index| %>
-    <% if File.read("data/chp#{index + 1}.txt").include?(@search_term) %>
-      <% hash[index + 1] = chap_name%>
-    <% end %>
-  <% end %>
-
-  <% if hash.empty? %>
-    <h2 class="content-subhead">Sorry, no matches were found.</h2>
+<% if params[:query] %>
+  <% if @results.empty? %>
+    <p>Sorry, no matches were found.</p>
   <% else %>
-    <% hash.each do |key, value| %>
-      <li class="pure-menu-item">
-        <a href="<%="chapters/#{key}"%>" class="pure-menu-link"><%= value %></a>
-      </li>
-    <% end %>
+    <h2 class="content-subhead">Results for '<%= params[:query]%>'</h2>
+
+    <ul>
+      <% @results.each do |result| %>
+        <li><a href="/chapters/<%= result[:number] %>"><%= result[:name] %></a></li>
+      <% end %>
+    </ul>
   <% end %>
-</p>
-
-# itereate through File.read("data/chp#{index + 1}.txt, and if it has the word, then
-# add the paraphaphs which have that link.
-
-
-# Get the
+<% end %>

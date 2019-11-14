@@ -10,19 +10,31 @@ not_found do
   redirect "/"
 end
 
+def each_chapter
+  @contents.each_with_index do |name, index|
+    number = index + 1
+    contents = File.read("data/chp#{number}.txt")
+    yield number, name, contents
+  end
+end
+
+def chapters_matching(query)
+  results = []
+
+  return results if !query || query.empty?
+
+  each_chapter do |number, name, contents|
+    results << {number: number, name: name} if contents.include?(query)
+  end
+
+  results
+end
+
 helpers do
   def in_paragraphs(text)
     text.split("\n\n").each_with_index.map do |line, index|
       "<p id=paragraph#{index}>#{line}</p>"
     end.join
-  end
-
-  def chapters_matching(query)
-    results = []
-
-    return results unless query
-
-    each
   end
 end
 
@@ -42,6 +54,6 @@ get "/chapters/:number" do
 end
 
 get "/search" do
-  @search_term = params[:query]
+  @results = chapters_matching(params[:query])
   erb :search
 end
