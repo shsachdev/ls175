@@ -16,6 +16,8 @@ get "/users" do
 end
 
 get "/users/:name" do
-  
+  @name = params[:name]
+  @content[:@name]
+  @title =
   erb :individual_user
 end

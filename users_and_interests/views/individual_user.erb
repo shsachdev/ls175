@@ -1,0 +1,7 @@
+<h2> <% @title %> </h2>
+
+<% @content.each do |key, value| %>
+  <li>
+    <a href="<%="users/#{key}"%>" ><%= key %></a>
+  </li>
+<% end %>
