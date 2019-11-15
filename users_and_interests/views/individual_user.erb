@@ -1,9 +1,9 @@
 <h2> Hello </h2>
 
 <p>Addition:
-<%= @name %>
+<%= @name.class %>
 </p>
 
 <p> Content:
-<%= @content[@name] %>
+<%= @content[@name.to_sym] %>
 </p>
