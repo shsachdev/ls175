@@ -17,7 +17,8 @@ end
 
 get "/users/:name" do
   @name = params[:name]
-  @content[:@name]
-  @title =
+  # hash = @content[@name] # => {:email=>"jamy.rustenburg@gmail.com", :interests=>["woodworking", "cooking", "reading"]}
+  # @email = hash[:email] # => returns a string
+  # @interests = hash[:interests] # => returns an array
   erb :individual_user
 end
