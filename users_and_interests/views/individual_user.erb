@@ -21,6 +21,6 @@
 
 <% @content.each do |key, value| %>
   <li>
-    <a href="<%="users/#{key}"%>" ><%= key unless @name == key %></a>
+    <a href="<%="/users/#{key}"%>" ><%= key unless @name == key.to_s %></a>
   </li>
 <% end %>
