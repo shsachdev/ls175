@@ -16,3 +16,11 @@
     <%= interest %>
   </li>
 <% end %>
+
+<h1> Other Users </h1>
+
+<% @content.each do |key, value| %>
+  <li>
+    <a href="<%="users/#{key}"%>" ><%= key unless @name == key %></a>
+  </li>
+<% end %>
