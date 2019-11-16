@@ -1,5 +1,10 @@
-<%= yield %>
+<h2> List of all User Names </h2>
 
+<% @content.each do |key, value| %>
+  <li>
+    <a href="<%="users/#{key}"%>" ><%= key %></a>
+  </li>
+<% end %>
 
 <p>Name:
 <%= "There are #{@content.keys.size} users" %>
