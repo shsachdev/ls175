@@ -7,6 +7,16 @@ before do
   @content = YAML.load_file('users.yaml')
 end
 
+helpers do
+  def total_interests # returns the total number of interests
+    array_of_interests = []
+    @content.each do |person, info|
+      array_of_interests << info[:interests]
+    end
+    array_of_interests.map {|arr| arr.size}.sum
+  end
+end
+
 get "/" do
   redirect "/users"
 end
