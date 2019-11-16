@@ -12,7 +12,7 @@ get "/" do
 end
 
 get "/users" do
-  erb :users
+  erb :users, layout: :layout
 end
 
 get "/users/:name" do
@@ -20,5 +20,5 @@ get "/users/:name" do
   hash = @content[@name.to_sym] # => {:email=>"jamy.rustenburg@gmail.com", :interests=>["woodworking", "cooking", "reading"]}
   @email = hash[:email] # => returns a string
   @interests = hash[:interests] # => returns an array
-  erb :individual_user
+  erb :individual_user, layout: :layout
 end
